@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Eliza Chatbot</title>
+    <script type = "text/javascript" src="elizabot.js"></script>
+    <script type="text/javascript" src="elizadata.js"></script>
+
+    <script type="text/javascript">
+
+        function getResponse()
+        {
+            var userInput = document.getElementById("chatinput").value;
+
+            var eliza = new ElizaBot();
+
+            var elizaResponse = eliza.transform(userInput);
+
+            var conversation = document.getElementById("chatoutput").value;
+
+            conversation += "\n";
+
+            conversation += "YOU SAID: " + userInput + "\n";
+
+            conversation += "ELIZA SAID: " + elizaResponse + "\n";
+
+            document.getElementById("chatoutput").value = conversation;
+        }
+    </script>
+</head>
+
+<body style= "background-color:lightpink">
+
+<h1> Welcome to the Eliza Chatbot: </h1>
+
+<textarea cols="80" id="chatoutput" readonly="readonly" rows="10"> </textarea>
+
+<p> Your Question: </p>
+
+<input type="text" id="chatinput" value="" />
+
+<button type="button" onclick="getResponse()"> Ask Your Question</button>
+
+</body>
+</html>
